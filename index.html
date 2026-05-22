@@ -5,32 +5,35 @@
     <title>正在连接客服...</title>
     <script>
         window.onload = function() {
-            // 🛠️ 完美的账号分流池，每个链接都严格规范了格式
             var waLinks = [
-                "https://wa.me/601127240868?text=Hello，我想看照片 😏", 
+                "https://wa.me/601127240868?text=Hello，我想看照片 😏",
                 "https://wa.me/601127240853?text=嗨，请问KL有安排吗？",
                 "https://wa.me/601139465316?text=Bro，怎么约妹妹？",
                 "https://wa.me/601111696543?text=在吗，看下安排",
                 "https://wa.me/601111696221?text=嗨，想看真人照片",
+                "https://wa.me/601111696337?text=你好，我是客服优优",
                 "https://wa.me/601111696811?text=你好，有妹妹吗？",
                 "https://wa.me/601111696254?text=Bro，刚看广告进来的",
                 "https://wa.me/601128133902?text=Hi，想选下火女孩",
                 "https://wa.me/601111696473?text=你好，可以发送女孩图片吗",
-                "https://wa.me/601137294390?text=你好，我想约女孩"
+                "https://wa.me/601137294390?text=你好，我想约女孩",
+                "https://wa.me/601127241270?text=你好，我是月月",
+                "https://wa.me/601111694431?text=你好，我是QQ",
+                "https://wa.me/601111696086?text=你好，我是小A"
             ];
 
-            // 🎲 核心黑科技：后台自动摇号，随机抽取一个链接
             var randomIndex = Math.floor(Math.random() * waLinks.length);
             var finalUrl = waLinks[randomIndex];
 
-            // 🚀 0.01秒内强行唤醒手机 WhatsApp 跳转
+            // 自动跳转前提示用户
             window.location.href = finalUrl;
         }
     </script>
 </head>
 <body>
-    <p style="text-align: center; margin-top: 50px; font-size: 16px; color: #666;">
-        正在为您匹配专属客服，请稍候...
-    </p>
+    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+        <p style="font-size: 18px; color: #333;">正在为您匹配专属客服，请稍候...</p>
+        <p style="font-size: 14px; color: #999;">若未自动跳转，请点击提示框“打开应用”以进入 WhatsApp。</p>
+    </div>
 </body>
 </html>
