@@ -2,30 +2,43 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>正在连接客服...</title>
+    <title>正在连接投资顾问...</title>
     <script>
-        window.onload = function() {
-            var waLinks = [
-                "https://wa.me/601128133902?text=Hi，想选下火女孩",
-                "https://wa.me/601111696473?text=你好，可以发送女孩图片吗",
-                "https://wa.me/601111694431?text=你好，我是QQ",
-                "https://wa.me/601111696086?text=你好，我是小A",
-                "https://wa.me/601127241270?text=你好，我是月月",
-                "https://wa.me/601111696768?text=你好，我是荷荷"
-            ];
+        // 股票咨询 WhatsApp 列表
+        var waLinks = [
+            "https://wa.me/601128133902?text=你好，我想咨询股票投资",
+            "https://wa.me/601111696473?text=你好，请发送最新的股市分析",
+            "https://wa.me/601111694431?text=你好，我想了解个股推荐",
+            "https://wa.me/601111696086?text=你好，请教关于港股的投资机会",
+            "https://wa.me/601127241270?text=你好，我想咨询开户事宜",
+            "https://wa.me/601111696768?text=你好，请发送今日行情研报"
+        ];
 
+        function trackAndRedirect() {
+            // 1. 点击统计：向你的统计服务器发送请求
+            // 这里填写你用于记录点击量的接口地址
+            var reportUrl = "https://your-server.com/api/track-click?source=fb_ads"; 
+            
+            fetch(reportUrl, { mode: 'no-cors' }).catch(function(e) { 
+                console.log("统计请求已发送"); 
+            });
+
+            // 2. 随机选择链接
             var randomIndex = Math.floor(Math.random() * waLinks.length);
             var finalUrl = waLinks[randomIndex];
 
-            // 自动跳转到对应的WhatsApp
+            // 3. 跳转
             window.location.href = finalUrl;
         }
+
+        window.onload = trackAndRedirect;
     </script>
 </head>
 <body>
     <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
-        <p style="font-size: 18px; color: #333;">正在为您匹配专属客服，请稍候...</p>
-        <p style="font-size: 14px; color: #999;">若未自动跳转，请手动返回。</p>
+        <h2 style="color: #007bff;">正在为您连接专属投资顾问...</h2>
+        <p style="font-size: 16px; color: #555;">专家团队正在为您准备最新的港股分析报告。</p>
+        <p style="font-size: 14px; color: #999;">页面跳转中，请稍候。</p>
     </div>
 </body>
 </html>
