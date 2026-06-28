@@ -2,8 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>正在连接投资顾问...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在連接投資顧問...</title>
 
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXBV1E0S5F"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,14 +15,14 @@
     </script>
 
     <script>
-        // 股票咨询 WhatsApp 列表
+        // WhatsApp 連結列表
         var waLinks = [
-            "https://wa.me/601128133902?text=你好，我想咨询股票投资",
-            "https://wa.me/601111696473?text=你好，请发送最新的股市分析",
-            "https://wa.me/601111694431?text=你好，我想了解个股推荐",
-            "https://wa.me/601111696086?text=你好，请教关于港股的投资机会",
-            "https://wa.me/601127241270?text=你好，我想咨询开户事宜",
-            "https://wa.me/601111696768?text=你好，请发送今日行情研报"
+            "https://wa.me/601128133902?text=你好，我想諮詢股票投資",
+            "https://wa.me/601111696473?text=你好，請發送最新的股市分析",
+            "https://wa.me/601111694431?text=你好，我想了解個股推薦",
+            "https://wa.me/601111696086?text=你好，請教關於港股的投資機會",
+            "https://wa.me/601127241270?text=你好，我想諮詢開戶事宜",
+            "https://wa.me/601111696768?text=你好，請發送今日行情研報"
         ];
 
         function getRedirectUrl() {
@@ -29,31 +31,40 @@
         }
 
         function triggerJump() {
-            // 统计点击（发送给Google Analytics）
+            // 獲取原網址帶來的參數 (如 utm_source 等)
+            var searchParams = window.location.search; 
+            
+            // 統計點擊數據
             gtag('event', 'whatsapp_redirect_click', {
                 'event_category': 'engagement',
                 'event_label': 'click_to_whatsapp'
             });
 
-            // 跳转
-            window.location.href = getRedirectUrl();
+            // 組合新連結
+            var targetUrl = getRedirectUrl();
+            var finalUrl = targetUrl + (targetUrl.indexOf('?') > -1 ? '&' : '') + searchParams.substring(1);
+
+            // 執行跳轉
+            window.location.href = finalUrl;
         }
 
+        // 頁面加載後延遲 500ms 自動跳轉，防止瀏覽器攔截
         window.onload = function() {
-            // 自动触发跳转
-            triggerJump();
+            setTimeout(function() {
+                triggerJump();
+            }, 500);
         };
     </script>
 </head>
 <body>
     <div style="text-align: center; margin-top: 80px; font-family: 'Helvetica Neue', sans-serif;">
-        <h2 style="color: #007bff;">正在为您连接专属投资顾问...</h2>
-        <p style="font-size: 16px; color: #555;">专家团队正在为您准备最新的港股分析报告。</p>
-        <p style="font-size: 14px; color: #999;">页面跳转中，请稍候。</p>
+        <h2 style="color: #007bff;">正在為您連接專屬投資顧問...</h2>
+        <p style="font-size: 16px; color: #555;">專家團隊正在為您準備最新的港股分析報告。</p>
+        <p style="font-size: 14px; color: #999;">頁面跳轉中，請稍候。</p>
         
         <div style="margin-top: 30px;">
             <button onclick="triggerJump()" style="padding: 15px 30px; font-size: 18px; background-color: #25d366; color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                立即连接投资专家
+                立即連接投資專家
             </button>
         </div>
     </div>
